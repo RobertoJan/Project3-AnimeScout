@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 const AnimeList = (props) => {
 
     const {image, title, id} = props;
+    console.log(id);
     return (
         <li className="animeLI">
             <Link to={`/animeInfo/${id}`} >
