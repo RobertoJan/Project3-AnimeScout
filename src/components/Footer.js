@@ -1,7 +1,9 @@
 
 const Footer = () => {
     return (
-        <p className="footerNote">Created at Juno College 2023</p>
+        <footer>
+            <p className="footerNote">Created at Juno College 2023</p>
+        </footer>
     )
 }
 

@@ -7,7 +7,7 @@ import { useState, useEffect} from "react";
 const AnimeScout = () => {
 
 // initializing state for user input and populating an array of object from the axios call to the api
-    const [input, setInput] = useState(null);
+    const [input, setInput] = useState('');
     const [animeList, setAnimeList] = useState([]);
 
 // event handlers so that React can take the information from the form input and the user submit the input
@@ -18,9 +18,10 @@ const AnimeScout = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         userSearch();
+        setInput('');
     }
 
-// side effect on initial render of the page, we are making an axios call to the JIKAN API and retrieving the top anime in the favorite categorie
+// side effect on initial render of the page, we are making an axios call to the JIKAN API and retrieving the top anime in the favorite category
     useEffect (() => {
         axios ({
             url: `https://api.jikan.moe/v4/top/anime`,
@@ -58,15 +59,13 @@ const AnimeScout = () => {
                 <h5>Below are the favorite Anime of our site but you can always insert a keyword to explore new titles! </h5>
                 <h5>Give it a Try!</h5>
             </header>
-            <Form handleSubmit={handleSubmit} handleChange={handleChange} />
+            <Form input={input} handleSubmit={handleSubmit} handleChange={handleChange} />
 
-            <ul className="animeList">
+            <ul className="animeList wrapper">
                 {
                     animeList.map((anime) => {
                         return (
-
                             <AnimeList key={anime.mal_id} image={anime.images.jpg.image_url} title={anime.title} id={anime.mal_id} />
-                        
                         )
                     })
                 }

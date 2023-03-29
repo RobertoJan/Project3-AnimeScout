@@ -5,6 +5,7 @@ import axios from "axios";
 const AnimeInfo = () => {
 
     const [animeInfo, setAnimeInfo] = useState({});
+    const [animeImage, setAnimeImage] = useState({});
 
     const urlParams = useParams();
 
@@ -19,22 +20,31 @@ const AnimeInfo = () => {
         })
     },[])
 
+    useEffect (() => {
+        axios ({
+            url: `https://api.jikan.moe/v4/anime/${urlParams.animeDetails}/pictures`
+        })
+        .then ((apiData) => {
+            setAnimeImage(apiData.data.data[0].jpg.image_url);
+        })
+    },[])
+
     return (
-        <div className="wrapper">
+        <div className="animeInfo">
             <h2>{title}</h2>
             <div className="animeCard">
-                <div className="animeImage">
-                    <img src={animeInfo.images.jpg.image_url} alt={title} />
+                <div className="animeCardImage">
+                    <img src={animeImage} alt={title} />
                 </div>
-                <div className="animeDetails">
-                    <ul>
+                <div className="animeCardDetails">
+                    <ul className="animeCardFacts">
                         <li>Score: {score}</li>
                         <li>Popularity Rank: {popularity}</li>
                         <li>Status: {status}</li>
                         <li>Episodes: {episodes}</li>
                         <li>Premiered: {season} {year}</li>
                     </ul>
-                    <div className="animeDescription">
+                    <div className="animeCardDescription">
                         <p>{synopsis}</p>
                     </div>
                 </div>

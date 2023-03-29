@@ -67,10 +67,14 @@ a {
 }
 
 a:hover,
-a:focus,
+a:focus {
+    color: violet;
+    transition: 0.3s;
+}
+
 button:hover,
 button:focus {
-    color: violet;
+    color: #58a4b0;
     transition: 0.3s;
 }
 
@@ -117,4 +121,132 @@ header h3,
 h5 {
     color: #a9bcd0;
     padding: 5px 0;
+}
+
+/* ---------- FORM STYLES ---------- */
+
+.formSection {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 25px;
+}
+
+form button {
+    color: #fff;
+    background-color: #a9bcd0;
+    border: none;
+}
+
+/* ---------- ANIMELIST STYLES ---------- */
+
+.animeList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.animeLI {
+    flex-basis: 24%;
+    margin-top: 25px;
+    
+}
+
+.animeContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.animeImage {
+    height: 100%;
+    position: relative;
+}
+
+.animeImage img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.animeTitle {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    width: 100%;
+}
+
+/* ---------- ANIMEINFO STYLES ---------- */
+
+.animeInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    width: 70%;
+    max-width: 1480px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #58a4b0;
+    font-size: 2rem;
+}
+
+.animeCard {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+
+.animeCardImage {
+    width: 30%;
+}
+
+.animeCardDetails {
+    width: 65%;
+}
+
+.animeCardFacts {
+    color: #58a4b0;
+    font-size: 1.3rem;
+}
+
+.animeCardDescription {
+    padding-top: 25px;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+/* ---------- FOOTER STYLES ---------- */
+
+footer {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    color: #58a4b0;
+}
+
+/* ---------- ABOUT STYLES ---------- */
+
+.about {
+    padding-top: 40px;
+    width: 40%;
+    max-width: 1480px;
+    margin: 0 auto;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about h2 {
+    padding: 10px 0;
 }

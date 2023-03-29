@@ -4,12 +4,12 @@ const AnimeList = (props) => {
 
     const {image, title, id} = props;
     return (
-        <li>
+        <li className="animeLI">
             <Link to={`/animeInfo/${id}`} >
                 <div className="animeImage">
                     <img src={image} alt={title} />
+                    <h5 className="animeTitle">{title}</h5>
                 </div>
-                <h3>{title}</h3>
             </Link>
         </li>
     )
