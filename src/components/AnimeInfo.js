@@ -5,29 +5,34 @@ import axios from "axios";
 const AnimeInfo = () => {
 
     const [animeInfo, setAnimeInfo] = useState({});
-    const [animeImage, setAnimeImage] = useState({});
+    const [animeImage, setAnimeImage] = useState('');
 
     const urlParams = useParams();
+    console.log(urlParams.animeDetails);
 
-    const {popularity, status, title, year, synopsis, episodes, score, season } = animeInfo;
+    const {image, popularity, status, title, year, synopsis, episodes, score, season } = animeInfo;
+
 
     useEffect (() => {
         axios ({
             url: `https://api.jikan.moe/v4/anime/${urlParams.animeDetails}`
         })
         .then ((apiData) => {
+            setAnimeImage(apiData.data.data.images.jpg.image_url);
             setAnimeInfo(apiData.data.data);
+            
         })
     },[])
 
-    useEffect (() => {
-        axios ({
-            url: `https://api.jikan.moe/v4/anime/${urlParams.animeDetails}/pictures`
-        })
-        .then ((apiData) => {
-            setAnimeImage(apiData.data.data[0].jpg.image_url);
-        })
-    },[])
+    // useEffect (() => {
+    //     axios ({
+    //         url: `https://api.jikan.moe/v4/anime/${urlParams.animeDetails}/pictures`
+    //     })
+    //     .then ((apiData) => {
+    //         console.log(apiData.data.data[0].jpg.image_url)
+    //         setAnimeImage(apiData.data.data[0].jpg.image_url);
+    //     })
+    // },[])
 
     return (
         <div className="animeInfo">

@@ -19,7 +19,6 @@ function App() {
 
       <Routes>
         <Route path='/' element={<AnimeScout />} />
-        <Route path='/scout' element={<AnimeScout />} />
         <Route path='/animeInfo/:animeDetails' element={<AnimeInfo />} />
         <Route path='/*' element={<Error />} />
         <Route path='/about' element={<About />} />
