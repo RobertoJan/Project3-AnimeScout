@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
 }
 .logoContainer {
-    width: 80px;
+    width: 75px;
 }
 
 .navLinks {
@@ -241,7 +241,7 @@ footer {
     width: 40%;
     max-width: 1480px;
     margin: 0 auto;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,4 +249,127 @@ footer {
 
 .about h2 {
     padding: 10px 0;
+}
+
+/* ---------- CONTACT STYLES ---------- */
+
+.contact {
+    padding-top: 40px;
+    width: 40%;
+    max-width: 1480px;
+    margin: 0 auto;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactList {
+    display: flex;
+    padding: 20px 0;
+}
+
+.contactList a {
+    padding: 10px;
+    font-size: 2rem;
+}
+
+/* ---------- MEDIA QUERIES STYLES ---------- */
+
+@media (max-width:1000px) {
+    .animeInfo {
+        width: 85%;
+    }
+
+    .about {
+        width: 50%;
+    }
+
+    .contact {
+        width: 50%;
+    }
+}
+
+@media (max-width:800px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .animeLI {
+        flex-basis: 32%;
+    }
+
+    .animeCard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .animeCardFacts {
+        padding-top: 25px;
+    }
+
+    .animeCardImage {
+        width: 50%;
+    }
+
+    .animeCardDetails {
+        width: 80%;
+    }
+
+    .about {
+        width: 60%;
+    }
+
+    .contact {
+        width: 60%;
+    }
+}
+
+@media (max-width:600px) {
+
+    .animeLI {
+        flex-basis: 48%;
+    }
+
+    .animeCardImage {
+        width: 70%;
+    }
+
+    .animeCardDetails {
+        width: 90%;
+    }
+
+    .about {
+        width: 80%;
+    }
+
+    .contact {
+        width: 80%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:400px) {
+
+    .navLinks a {
+        padding: 10px 5px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+    .animeLI {
+        flex-basis: 95%;
+    }
+
+    .animeCardImage {
+        width: 90%;
+    }
+
+    .animeCardDetails {
+        width: 100%;
+    }
 }
