@@ -8,14 +8,13 @@ const AnimeInfo = () => {
 
     const urlParams = useParams();
 
-    const {images, popularity, status, title, year, synopsis, episodes, score, season } = animeInfo;
+    const {popularity, status, title, year, synopsis, episodes, score, season } = animeInfo;
 
     useEffect (() => {
         axios ({
             url: `https://api.jikan.moe/v4/anime/${urlParams.animeDetails}`
         })
         .then ((apiData) => {
-            console.log(apiData.data.data);
             setAnimeInfo(apiData.data.data);
         })
     },[])
@@ -25,7 +24,7 @@ const AnimeInfo = () => {
             <h2>{title}</h2>
             <div className="animeCard">
                 <div className="animeImage">
-                    <img src={images.jpg.image_url} alt={title} />
+                    <img src={animeInfo.images.jpg.image_url} alt={title} />
                 </div>
                 <div className="animeDetails">
                     <ul>

@@ -10,9 +10,9 @@ const Form = (props) => {
             </div>
             <form onSubmit={handleSubmit} action="">
                 <label htmlFor="userInput"></label>
-                <input onChange={handleChange} type="text" id="userInput" required  />
+                <input onChange={handleChange} type="text" id="userInput" required placeholder="search anime here" />
                 <div className="buttonContainer">
-                    <button>Submit</button>
+                    <button>Search</button>
                 </div>
             </form>
         </div>

@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
+import animeScoutLogo from '../as-logo.png';
 
 const Nav = () => {
     return (
         <div className="wrapper">
-            <nav>
-                <div className="logoContainer"><img src="" alt="logo" /></div>
-                <ul>
+            <nav className="headerNav">
+                <div className="logoContainer">
+                    <Link to='/' >
+                        <img src={animeScoutLogo} alt="AnimeScout logo" />
+                    </Link>
+                </div>
+                <ul className="navLinks" >
                     <Link to='/' >
                         <li>Home</li>
                     </Link>

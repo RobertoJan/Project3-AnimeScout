@@ -2,14 +2,15 @@ import AnimeList from "./AnimeList";
 import Form from "./Form";
 import axios from "axios";
 import { useState, useEffect} from "react";
-import { Link } from "react-router-dom";
 
-
+// this is the Home page and the main component holding states and making the API calls 
 const AnimeScout = () => {
 
+// initializing state for user input and populating an array of object from the axios call to the api
     const [input, setInput] = useState(null);
     const [animeList, setAnimeList] = useState([]);
 
+// event handlers so that React can take the information from the form input and the user submit the input
     const handleChange = (e) => {
         setInput(e.target.value);
     }
@@ -17,9 +18,9 @@ const AnimeScout = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         userSearch();
-        
     }
 
+// side effect on initial render of the page, we are making an axios call to the JIKAN API and retrieving the top anime in the favorite categorie
     useEffect (() => {
         axios ({
             url: `https://api.jikan.moe/v4/top/anime`,
@@ -31,11 +32,10 @@ const AnimeScout = () => {
         })
         .then ((apiData)=> {
             setAnimeList(apiData.data.data);
-            console.log(apiData.data.data)
-
         })
     },[])
 
+// a function used to make an axios call using the user input as a parameter to retrieve an array of anime titles according to the input
     const userSearch = () => {
         axios ({
             url: `https://api.jikan.moe/v4/anime`,
@@ -51,7 +51,13 @@ const AnimeScout = () => {
     }
 
     return (
-        <div className="scoutPage">
+        <div className="home">
+            <header className="wrapper">
+                <h1>AnimeScout</h1>
+                <h3>Scout an Anime to Watch!</h3>
+                <h5>Below are the favorite Anime of our site but you can always insert a keyword to explore new titles! </h5>
+                <h5>Give it a Try!</h5>
+            </header>
             <Form handleSubmit={handleSubmit} handleChange={handleChange} />
 
             <ul className="animeList">
