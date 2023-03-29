@@ -1,7 +1,17 @@
+import { Link } from "react-router-dom";
 
-const AnimeList = () => {
+const AnimeList = (props) => {
+
+    const {image, title, id} = props;
     return (
-        <h2>This is the Anime List Page</h2>
+        <li>
+            <Link to={`/animeInfo/${id}`} >
+                <div className="animeImage">
+                    <img src={image} alt={title} />
+                </div>
+                <h3>{title}</h3>
+            </Link>
+        </li>
     )
 }
 
