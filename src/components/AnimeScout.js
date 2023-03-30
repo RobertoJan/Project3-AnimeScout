@@ -2,6 +2,7 @@ import AnimeList from "./AnimeList";
 import Form from "./Form";
 import axios from "axios";
 import { useState, useEffect} from "react";
+import ScoutError from "./ScoutError";
 
 // this is the Home page and the main component holding states and making the API calls 
 const AnimeScout = () => {
@@ -62,16 +63,17 @@ const AnimeScout = () => {
             <Form input={input} handleSubmit={handleSubmit} handleChange={handleChange} />
 
             <ul className="animeList wrapper">
-                {
+            {animeList.length < 1 ?
+                <div className="noResults">
+                    <h3>No results found with that word please try with a different one</h3>
+                </div> :
                     animeList.map((anime) => {
                         return (
-                            <AnimeList key={anime.mal_id} image={anime.images.jpg.image_url} title={anime.title} id={anime.mal_id} />
+                            <AnimeList key={anime.mal_id} image={anime.images.jpg.large_image_url} title={anime.title} id={anime.mal_id} />
                         )
                     })
                 }
-
             </ul>
-            
         </div>
     )
 }

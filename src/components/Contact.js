@@ -3,10 +3,12 @@ import {faLinkedin, faGithub} from '@fortawesome/free-brands-svg-icons';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
+
+    // imported fontawesome library for the icons to show up on the site
     return (
         <div className="contact">
             <h2>Get in Touch</h2>
-            <ul class="contactList">
+            <ul className="contactList">
                 <li>
                     <a href="https://www.linkedin.com/in/robertojan/">
                     <FontAwesomeIcon icon={faLinkedin} />

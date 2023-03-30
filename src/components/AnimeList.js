@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 const AnimeList = (props) => {
+   
+    // this component is being mapped on AnimeScout to create a list of anime titles and information is passed down via props
 
     const {image, title, id} = props;
-    console.log(props);
     return (
         <li className="animeLI">
             <Link to={`/animeInfo/${id}`} >

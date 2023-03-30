@@ -154,8 +154,9 @@ form button {
 
 .animeLI {
     flex-basis: 24%;
+    margin: 0 5px;
     margin-top: 25px;
-    
+    flex-grow: 1;
 }
 
 .animeContainer {
@@ -238,13 +239,26 @@ footer {
 
 .about {
     padding-top: 40px;
-    width: 40%;
+    width: 60%;
     max-width: 1480px;
     margin: 0 auto;
-    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 80vh;
+}
+
+.aboutContent {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.aboutImage {
+    flex-basis: 37%;
+}
+.aboutText {
+    flex-basis: 57%;
 }
 
 .about h2 {
@@ -320,9 +334,27 @@ footer {
         width: 60%;
     }
 
+    .aboutContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutImage {
+        width: 60%;
+        margin-bottom: 30px;
+    }
+
     .contact {
         width: 60%;
     }
+}
+
+.noResults {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: violet;
+    font-size: 1rem;
 }
 
 @media (max-width:600px) {

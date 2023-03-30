@@ -1,6 +1,8 @@
 
 const Form = (props) => {
 
+    // event handlers functions are being passed down via props from the parent component AnimeScout
+
     const {handleSubmit, handleChange} = props;
     return (
         <section className="wrapper formSection">
