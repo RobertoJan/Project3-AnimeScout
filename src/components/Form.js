@@ -11,7 +11,7 @@ const Form = (props) => {
                 <p></p>
             </div>
             <form onSubmit={handleSubmit} action="">
-                <label htmlFor="userInput"></label>
+                <label className="sr-only" htmlFor="userInput">insert query here</label>
                 <input value={props.input} onChange={handleChange} type="text" id="userInput" required placeholder="search here" />
                 <div className="buttonContainer">
                     <button>Search</button>
