@@ -405,3 +405,12 @@ footer {
         width: 100%;
     }
 }
+
+/* ---------- AXIOS ERROR STYLES ---------- */
+
+.axiosErrorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

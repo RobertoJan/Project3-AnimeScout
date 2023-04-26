@@ -2,7 +2,6 @@ import AnimeList from "./AnimeList";
 import Form from "./Form";
 import axios from "axios";
 import { useState, useEffect} from "react";
-import ScoutError from "./ScoutError";
 
 // this is the Home page and the main component holding states and making the API calls 
 const AnimeScout = () => {
@@ -10,6 +9,7 @@ const AnimeScout = () => {
 // initializing state for user input and populating an array of object from the axios call to the api
     const [input, setInput] = useState('');
     const [animeList, setAnimeList] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
 
 // event handlers so that React can take the information from the form input and the user submit the input
     const handleChange = (e) => {
@@ -48,8 +48,12 @@ const AnimeScout = () => {
             }
         })
         .then ((apiData) => {
+            setErrorMessage('')
             setAnimeList(apiData.data.data)
         })
+        .catch(function (error) {
+            setErrorMessage(error.toJSON().message);
+        });
     }
 
     return (
@@ -61,19 +65,23 @@ const AnimeScout = () => {
                 <h5>Give it a Try!</h5>
             </header>
             <Form input={input} handleSubmit={handleSubmit} handleChange={handleChange} />
-
-            <ul className="animeList wrapper">
-            {animeList.length < 1 ?
+            {errorMessage.length < 1 ? 
+            animeList.length < 1 ?
                 <div className="noResults">
                     <h3>No results found with that word please try with a different one</h3>
                 </div> :
-                    animeList.map((anime) => {
+                <ul className="animeList wrapper">
+                    {animeList.map((anime) => {
                         return (
                             <AnimeList key={anime.mal_id} image={anime.images.jpg.large_image_url} title={anime.title} id={anime.mal_id} />
                         )
                     })
-                }
-            </ul>
+                    }
+                </ul>
+             : <div className="wrapper axiosErrorContainer">
+                <h3 className="axiosErrorMessage">{errorMessage}</h3>
+             </div>
+            }
         </div>
     )
 }
